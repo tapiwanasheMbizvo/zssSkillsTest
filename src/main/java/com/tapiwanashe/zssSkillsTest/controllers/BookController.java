@@ -1,12 +1,14 @@
 package com.tapiwanashe.zssSkillsTest.controllers;
 
 import com.tapiwanashe.zssSkillsTest.models.Book;
+import jdk.nashorn.internal.runtime.options.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.tapiwanashe.zssSkillsTest.repositories.BookRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/books")
@@ -23,7 +25,15 @@ public class BookController {
         return  bookRepository.findAll();
     }
 
-    @PostMapping
+    @GetMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    private Optional<Book> getOneBook(@PathVariable (name = "id") Long id){
+
+
+        return  bookRepository.findById(id);
+    }
+
+    @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     private Book saveBook(@RequestBody Book book){
 
