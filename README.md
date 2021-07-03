@@ -1,7 +1,7 @@
 # ZSS - Backend Take Home Test
 
 ## About the application 
-The application exposes a  REST API to add, eddit, view and delere books and  their categories.
+The application exposes a  REST API to add, edit, view and delere books and  their categories.
 It also provides end point to purchase a specific book.
 
 ## Running the application 
@@ -15,7 +15,7 @@ Edit the application.properties file  to specify your connection to a [PostgreSQ
 
 1.books 
 
-  POST - mehtod takes a JSON input with title, price and category object to persist a book 
+  POST -  takes a JSON input with title, price and category object to persist a book 
  ```
  /books
  ```
@@ -33,7 +33,7 @@ Edit the application.properties file  to specify your connection to a [PostgreSQ
  /books/{id}
  ```
  
-2. categories  thie end pint allows  POST, GET, DELTE actions 
+2. categories  this endpoint allows  POST, GET, DELETE actions 
 
 ```
  /categories
