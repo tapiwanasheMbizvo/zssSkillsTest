@@ -9,7 +9,14 @@ Clone the repository into your machine and cd into the main folder.
 
 ## Configuration 
 
-Edit the application.properties file  to specify your connection to a [PostgreSQL]  database.
+Edit the application.properties file  to specify your connection to a [PostgreSQL]  
+```
+spring.datasource.url=jdbc:postgresql://localhost:5432/{your_DB}
+spring.datasource.username=dbusername
+spring.datasource.password=dbpassword
+spring.jpa.hibernate.ddl-auto=update
+
+```
 
 ## END POINTS 
 
