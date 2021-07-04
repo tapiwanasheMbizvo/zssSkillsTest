@@ -28,17 +28,15 @@ public class ShopController {
     @Autowired
     private BookRepository bookRepository;
 
-    @GetMapping("/{id}/{cardID}")
+   // @GetMapping("/{id}/{cardID}")
+    @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    private String getOneBook(@PathVariable(name = "id") Long id, @PathVariable(name = "cardID") String cardID){
-        Optional<Book> bookToBuy = bookRepository.findById(id);
+    private String getOneBook(@RequestBody Transaction transaction){
 
-        return  doPost(bookRepository.findById(id).get().getPrice(), cardID);
+        Optional<Book> bookToBuy = bookRepository.findById(transaction.getBookID());
 
-       /* bookToBuy.ifPresent(book ->
-                doPost(book.getPrice(), cardID)
-                );
-*/
+        return  doPost(bookRepository.findById(transaction.getBookID()).get().getPrice(), transaction.getCardID());
+
 
     }
 

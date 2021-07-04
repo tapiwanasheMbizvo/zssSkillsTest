@@ -24,6 +24,18 @@ spring.jpa.hibernate.ddl-auto=update
 
   POST -  takes a JSON input with title, price and category object to persist a book 
  ```
+ {
+
+    "title": "Book 1",
+    "description": "A fantasy novella",
+    "price": 78.96,
+    "category":
+{
+    "id": 1,
+    "categoryTitle": "Fiction",
+    "books": null
+}
+}
  /books
  ```
  GET - View all books 
@@ -42,9 +54,17 @@ spring.jpa.hibernate.ddl-auto=update
  
 2. categories  this endpoint allows  POST, GET, DELETE actions 
 
+
+POST - Create A category 
 ```
- /categories
- ```
+{
+"categoryTitle": "Fiction"
+}
+
+/categories
+
+```
+
  GET - View all Categories 
  ```
  /categories
@@ -60,10 +80,14 @@ spring.jpa.hibernate.ddl-auto=update
  ```
  3. Purchase 
  This endpoint allows clients to make purchase requests to the books by specifying a book ID and CARD ID 
- 
+ It takes an 
  ```
- #Sends are GET request to purchase book ID 1 , with card ID  1234560000000002
- http://localhost:8080/purchase/1/1234560000000002
+ {
+"bookID": 1,
+"cardID": "1234560000000001"
+}
+ #Sends are POST request to purchase book ID 1 , with card ID  1234560000000002
+ http://localhost:8080/purchase/
  ```
 
 This returns a JSON Object Specifying if the transaction was authorised or not 
