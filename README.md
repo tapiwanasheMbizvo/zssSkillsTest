@@ -1,7 +1,7 @@
 # ZSS - Backend Take Home Test
 
 ## About the application 
-The application exposes a  REST API to add, edit, view and delere books and  their categories.
+The application exposes a  REST API to add, edit, view and delete books and  their categories.
 It also provides end point to purchase a specific book.
 
 ## Running the application 
